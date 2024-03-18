@@ -167,8 +167,14 @@ function sellTickets(/* queue */) {
  *    console.log(r.height);      // => 20
  *    console.log(r.getArea());   // => 200
  */
-function Rectangle(/* width, height */) {
-  throw new Error('Not implemented');
+function Rectangle(width, height) {
+  return {
+    width,
+    height,
+    getArea() {
+      return this.width * this.height;
+    },
+  };
 }
 
 /**
@@ -230,7 +236,6 @@ function fromJSON(proto, json) {
  *    ]
  */
 function sortCitiesArray(arr) {
-  // throw new Error('Not implemented');
   return arr.sort((a, b) => {
     if (a.country !== b.country) {
       return a.country.localeCompare(b.country);
